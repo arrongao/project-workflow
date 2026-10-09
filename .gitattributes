@@ -1,0 +1,6 @@
+# 这些文件会被原样复制进别的项目。统一 LF，避免换行符抖动制造无意义的 diff。
+* text=auto eol=lf
+
+# 但 Windows 的批处理必须 CRLF，否则可能无法执行（本仓库暂无，先写上）
+*.bat text eol=crlf
+*.cmd text eol=crlf
