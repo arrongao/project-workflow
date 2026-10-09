@@ -75,12 +75,30 @@ references/
   core-judgments.md       四条判断的展开与反例（开工前读）
   boundaries.md           ⚠️ 什么不该做 —— 含"不要搬别的项目的坑"
   archaeology.md          从 git history 挖重复模式的具体命令
+  multi-agent.md          多 agent / 多人协作：交接怎么写、"未提交等于不存在"
 templates/
   AGENTS.md               规则骨架
   BACKLOG.md              状态骨架
   WORKFLOW.md             协作骨架
   README.md               产品骨架
 ```
+
+---
+
+## 多 agent / 多人协作
+
+**同一个项目常由不同的 agent 接手。出问题的地方通常不是能力，是信息不同步。**
+
+四条规则（详见 `references/multi-agent.md`）：
+
+1. **`进行中` 的条目必须写「谁在做 · 下一步 · 已改动哪些文件」** —— 光写"进行中"等于没写
+2. **做完一段就提交，哪怕功能没完成**（`wip:` 前缀）——
+   **未提交的工作，对其他 agent 等于不存在**
+3. **动手前先 `git status`** —— 工作区脏就停下来读 diff，不要 `stash`、不要"顺手清理"
+4. **一个工作区同一时间只允许一个 agent** —— 要并行就用 branch / worktree 隔离
+
+> 第 2 条来自一个真实案例：一次会话做完了一整套十项测试**却没有提交**，
+> 八天后另一次会话从 `BACKLOG` 上完全看不出它存在，**差一点重做一遍**。
 
 ---
 

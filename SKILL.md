@@ -21,6 +21,24 @@ whenToUse: Starting a new project, or asked to bring an existing repository up t
 
 ## 一、先判断是哪种项目 —— 这决定了后面全部做法
 
+### ⚠️ 但无论哪种，**第一个动作都是看工作区**
+
+```bash
+git status        # 不干净 ⇒ 有人做到一半
+git log -5        # 最近发生了什么
+```
+
+**工作区不干净时，先停下来**：读 `git diff` ✓ 对照 `BACKLOG.md` 的 `进行中` ✓
+**对得上就接手，对不上就问。**
+
+**不要 `stash`、不要 `checkout`、不要"顺手清理"** ✗ ——
+工作区里的未提交改动，是**别人尚未说完的话**。
+
+> **未提交的工作，对其他 agent 等于不存在。** 这是多 agent 协作里最大的一个漏洞，
+> 详见 `references/multi-agent.md`。
+
+### 然后判断项目状态
+
 ```
 目录里有没有实质内容？（代码、文档、git 历史）
 ├─ 没有  → 【新建模式】§二
@@ -66,7 +84,7 @@ whenToUse: Starting a new project, or asked to bring an existing repository up t
 ### 3.1 **先探测，先报告，不要动任何文件**
 
 ```
-读 git log（至少最近 50 条）、看顶层目录、读已有的 README / docs / 贡献指南
+git status（工作区干不干净）→ git log（至少最近 50 条）→ 看顶层目录 → 读已有的 README / docs / 贡献指南
 ```
 
 **报告三件事**，然后**停下来等确认**：
@@ -76,6 +94,7 @@ whenToUse: Starting a new project, or asked to bring an existing repository up t
 | **已有的是什么** | 已有的约定必须保留，即使它和这套工作流不同 |
 | **缺的是什么** | 对照 §2.2 的四张表 |
 | **哪些是它自己的坑** | §3.2 —— 这才是最有价值的部分 |
+| **有没有别人做到一半的活** | `git status` 脏 + `BACKLOG.md` 有 `进行中` → 见 `references/multi-agent.md` |
 
 ### 3.2 从 git history 里挖重复的错误模式（**本模式的核心价值**）
 
@@ -118,6 +137,7 @@ whenToUse: Starting a new project, or asked to bring an existing repository up t
 | `references/core-judgments.md` | **开工前**。四条判断的展开与反例 |
 | `references/boundaries.md` | 写任何文件之前。明确"什么不该做"，含"不要搬别人的坑" |
 | `references/archaeology.md` | 进行中模式的 §3.2。从 git history 挖模式的**具体命令** |
+| `references/multi-agent.md` | **多 agent / 多人协作时**。交接怎么写、"未提交等于不存在"的真实案例 |
 | `templates/*.md` | 复制骨架时 |
 
 ---
