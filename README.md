@@ -81,6 +81,7 @@ templates/
   BACKLOG.md              状态骨架
   WORKFLOW.md             协作骨架
   README.md               产品骨架
+  .gitattributes          ⚠️ 第一个提交就要带上（文件名以点开头，容易被通配符漏掉）
 ```
 
 ---
