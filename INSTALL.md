@@ -13,6 +13,17 @@
 
 ~表示用户主目录。只选择一个作用域，避免同名副本产生冲突。Codex使用官方当前本地发现路径；已有.codex/skills安装不必在本次自动迁移，先确认实际来源。Claude云端/Cowork不等同本地Claude Code，不能靠复制本机目录完成云端安装。
 
+## 获取指定版本
+
+下载 [v0.0.1 源码 ZIP](https://github.com/arrongao/project-workflow/archive/refs/tags/v0.0.1.zip) 并解压，或执行：
+
+```sh
+git clone --branch v0.0.1 --depth 1 https://github.com/arrongao/project-workflow.git
+cd project-workflow
+```
+
+然后按下面的复制步骤安装。版本标签用于固定内容；不要把下载目录的版本后缀带入最终 Skill 目录名。
+
 ## 从已下载仓库安装
 
 以下在下载后的仓库根目录运行，目标已存在就停止；更新现有安装前先核对其来源和本地修改。不要用强制覆盖解决同名冲突。
@@ -53,7 +64,7 @@ done
 
 dshHome可由配置或DSH_HOME改变；agentsHome也可配置，不能宣称~/.agents永远生效。设置DSH_HOME只改变相应DSH根，不表示其他有效技能根全部失效。先核对当前安装的配置、技能来源路径与版本。
 
-本条根据2026-10-22本地源码版本d743267388641bc76f17c45ce8b4c231aed1d32cpackages/skill/skill-filesystem/src/index.ts的discoverRoots相关实现（project-dsh、project-agents、user-dsh、user-agents）及packages/util/home-paths核对，不保证所有发行版完全相同。它是宿主说明，不是通用执行规则。
+本条根据2026-10-22本地源码版本`d743267388641bc76f17c45ce8b4c231aed1d32c` 的 `packages/skill/skill-filesystem/src/index.ts`的discoverRoots相关实现（project-dsh、project-agents、user-dsh、user-agents）及packages/util/home-paths核对，不保证所有发行版完全相同。它是宿主说明，不是通用执行规则。
 
 ## 验证与更新
 

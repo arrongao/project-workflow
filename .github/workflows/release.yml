@@ -1,0 +1,28 @@
+name: Publish release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]*'
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Publish tagged release notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          gh api "repos/$GH_REPO/contents/releases/$RELEASE_TAG.md?ref=$RELEASE_TAG" \
+            -H 'Accept: application/vnd.github.raw+json' > release-notes.md
+          test -s release-notes.md
+          gh release create "$RELEASE_TAG" --repo "$GH_REPO" --verify-tag \
+            --title "project-workflow $RELEASE_TAG" --notes-file release-notes.md

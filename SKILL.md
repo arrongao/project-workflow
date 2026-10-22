@@ -3,7 +3,7 @@ name: project-workflow
 description: Establish or audit a project's rules, task status, handoff and completion evidence. Use when the user asks to initialize project governance, reconcile documentation with reality, or improve an existing workflow. Preserve existing document locations and authorization; do not invoke just because an ordinary coding task has a repository.
 license: MIT
 metadata:
-  version: "2.0.0"
+  version: "0.0.1"
 ---
 
 # Project workflow

@@ -28,4 +28,6 @@ Codex可用`$project-workflow`；Claude Code可用`/project-workflow`；其他�
 
 GitHub公开仓库并不自动赋予开源授权。发布时保留LICENSE和SKILL.md的license字段，确认拥有分发所包含内容的权利。本次版权署名使用仓库账号arrongao。
 
-GitHub仓库地址以作者实际发布结果为准；不提供尚未核实存在的下载链接。[发布检查](PUBLISHING.md)
+源码仓库：[arrongao/project-workflow](https://github.com/arrongao/project-workflow)。首个公开版本为 `v0.0.1`，内部迭代版本号不代表既有公开发行版。
+
+[版本与下载](https://github.com/arrongao/project-workflow/releases) · [发布检查](PUBLISHING.md)
