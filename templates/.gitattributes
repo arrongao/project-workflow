@@ -1,26 +1,8 @@
-# ⚠️ 新仓库的第一个提交就要带上这个文件。
-#
-# 不写它不会报错 —— 只在第一次 `git add` 时发几句
-# `LF will be replaced by CRLF the next time Git touches it` 的警告，
-# 而警告会被当成噪声略过。
-#
-# 后果是实打实的：这些文件会被复制或同步到别处，
-# 换行符被 git 改过之后，在别处会显示成"整个文件都改了"的无意义 diff，
-# 而那种 diff 会掩盖真正的改动。
-#
-# 改成本项目需要的规则，但不要删掉这个文件。
-
-# 默认：交给 git 判断，检出时统一 LF
+# 新项目可采用；已有仓库须先检查其换行/二进制策略，不直接覆盖或批量规范化。
 * text=auto eol=lf
-
-# Windows 的批处理必须 CRLF，否则可能无法执行
 *.bat text eol=crlf
 *.cmd text eol=crlf
-
-# 二进制资源不参与换行符处理（按需增删）
 *.png binary
 *.jpg binary
 *.ico binary
 *.pdf binary
-*.msix binary
-*.pfx binary
