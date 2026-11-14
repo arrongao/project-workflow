@@ -1,6 +1,8 @@
 # 安装到不同Agent
 
-核对日期：2026-10-22。安装整个project-workflow目录，至少保留SKILL.md、references/、templates/及LICENSE。下载后不要多套一层目录。托管在GitHub、GitCode或本地不改变Skill格式；不同安装器支持的URL可能不同。
+核对日期：2026-11-14。安装整个project-workflow目录，至少保留SKILL.md、references/、templates/及LICENSE。下载后不要多套一层目录。托管在GitHub、GitCode或本地不改变Skill格式；不同安装器支持的URL可能不同。
+
+版本分两套：skill本体版本见`SKILL.md`的`metadata.version`，模板版本见`templates/manifest.json`的`template_version`。两者的用途、marker与registry格式及升级流程见[VERSIONING.md](VERSIONING.md)与[references/upgrade.md](references/upgrade.md)。
 
 ## 目录与调用
 
@@ -15,10 +17,10 @@
 
 ## 获取指定版本
 
-下载 [v0.0.1 源码 ZIP](https://github.com/arrongao/project-workflow/archive/refs/tags/v0.0.1.zip) 并解压，或执行：
+下载 [v0.0.2 源码 ZIP](https://github.com/arrongao/project-workflow/archive/refs/tags/v0.0.2.zip) 并解压，或执行：
 
 ```sh
-git clone --branch v0.0.1 --depth 1 https://github.com/arrongao/project-workflow.git
+git clone --branch v0.0.2 --depth 1 https://github.com/arrongao/project-workflow.git
 cd project-workflow
 ```
 
@@ -36,7 +38,7 @@ $skillTarget = Join-Path $HOME '.agents/skills/project-workflow'
 if (!(Test-Path -LiteralPath (Join-Path $skillSource 'SKILL.md'))) { throw '请在Skill仓库根目录执行' }
 if (Test-Path -LiteralPath $skillTarget) { throw '目标已存在，请先核对现有安装' }
 New-Item -ItemType Directory -Path $skillTarget -Force | Out-Null
-foreach ($entry in @('SKILL.md','LICENSE','README.md','INSTALL.md','PUBLISHING.md','references','templates','tests')) {
+foreach ($entry in @('SKILL.md','LICENSE','README.md','INSTALL.md','PUBLISHING.md','VERSIONING.md','references','templates','tests')) {
     Copy-Item -LiteralPath (Join-Path $skillSource $entry) -Destination $skillTarget -Recurse
 }
 ```
@@ -53,7 +55,7 @@ if test -e "$skill_target" || test -L "$skill_target"; then
   exit 1
 fi
 mkdir -p "$skill_target"
-for entry in SKILL.md LICENSE README.md INSTALL.md PUBLISHING.md references templates tests; do
+for entry in SKILL.md LICENSE README.md INSTALL.md PUBLISHING.md VERSIONING.md references templates tests; do
   cp -R "$skill_source/$entry" "$skill_target/"
 done
 ```
@@ -71,7 +73,7 @@ dshHome可由配置或DSH_HOME改变；agentsHome也可配置，不能宣称~/.a
 1. 检查目标根下直接存在SKILL.md，frontmatter中的name为project-workflow。
 2. 在宿主技能列表确认名称和实际来源路径；未出现时按产品支持的方式刷新或开启新会话，不保证所有Agent即时刷新。
 3. 用“只读检查，不修改”请求做一次试用，确认未产生意外文件、提交或外部操作。
-4. 更新时比较安装版本及本地修改，再同步已选定版本；有多个Agent副本时分别核对，避免版本漂移。
+4. 更新时比较安装版本及本地修改，再同步已选定版本；有多个Agent副本时分别核对，避免版本漂移。升级skill本体与升级项目模板是两件事：skill本体按`snapshot.json`哈希判定能否整体覆盖，项目模板永不静默覆盖，落后只提示、经用户确认后才合并。详见[references/upgrade.md](references/upgrade.md)。
 
 ## 依据与验证边界
 

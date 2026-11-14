@@ -1,0 +1,34 @@
+{
+  "template_version": "pre-marker",
+  "skill_version": "0.0.1",
+  "generated": "2026-11-14",
+  "note": "无 marker 时代的模板基准。primary 为 skill v0.0.1 发布的 templates/ 内容（取自 Git tag v0.0.1）；earlier 收录该 tag 之前仓库历史中出现过的模板内容，用于识别更早植入的项目。文件的基准可以是单个哈希字符串，也可以是哈希数组（任一匹配即视为未改动）。哈希为 sha256，内容为 LF 换行。",
+  "files": {
+    "AGENTS.md": [
+      "sha256:200cf145a7e15e22ae38c6c076e84151c750f4a3d0430df59c849156a7390b83",
+      "sha256:d10c2cbba62be5fca7e06318e27567d9f80ef38f5deb7885fd7b2125cf6e7efc",
+      "sha256:889073c815fc16070ac628ec56231d5e7b61dd192188c5f83e086fe8e10e00a8"
+    ],
+    "BACKLOG.md": [
+      "sha256:f4c7be565cd265baa5969c8adbf8c2fd4de901f60fd75c2072efc2ad5b287800",
+      "sha256:62058ce29bfce6a429d570bdd8e849bf7ea7c986de5e42d4356298bfe4c2969f",
+      "sha256:903446af21424b7cea149b85c79a2a959fe67f353ef32732ac53fa90059cbc74",
+      "sha256:c4f823ef63d2ac09dc68580373c21d5eec52da14611d976dbe5b551776a74d4a"
+    ],
+    "WORKFLOW.md": [
+      "sha256:7b452860e3727f7628b7ac3d26fe1b081a372d6ba793841c6d99fdbd93901193",
+      "sha256:a8a0a3737d920c0824ace0099b98a0ed9e71a47dd2529a539d58f6356384c600",
+      "sha256:9cf6a0f78e2a8d16ad266bc1f0ef2ddb4daea1bd0d78188be1cc0e53a307fa9f",
+      "sha256:3c570f6c6f2b4586fb6a2dce23d2ab1b6ffa011de6fb1e96daaf9b9a5c7566ef",
+      "sha256:67816b30bf12e4cffec4c5f45e6ba6d4c7e2c14c70959b6c64c8555cda5779c1"
+    ],
+    "README.md": [
+      "sha256:63713d835a6e58033fd646cdd05601f11e90492f1428fca868854aabf9a2919f",
+      "sha256:2bfdf7ccc6a8090594a3a61707e074187f5dd9a6f0bdc297ddbcd33a6b48df2c"
+    ],
+    ".gitattributes": [
+      "sha256:a29d8beffdb800fb1c33e341e80968a6ea849b2223d9ac81a6b1a08b4617366e",
+      "sha256:f6a265d263824811ae078c41abce925454795b85985ac18a798cda6f76a1c0ad"
+    ]
+  }
+}

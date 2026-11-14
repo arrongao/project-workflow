@@ -16,11 +16,19 @@ Codex可用`$project-workflow`；Claude Code可用`/project-workflow`；其他�
 
 默认模板包括AGENTS.md、BACKLOG.md、WORKFLOW.md、README.md和.gitattributes。它们是可裁剪骨架，不是必需文件清单；已有同职责文件时复用。安装Skill也不会自动创建这些项目文件。
 
+## 版本与升级
+
+本skill有**两套独立版本**：skill本体版本（`SKILL.md`的`metadata.version`）与模板版本（`templates/manifest.json`的`template_version`）。植入项目的模板在文件首行带`<!-- project-workflow: template-version=… -->`标记，用于判断该项目模板是否为最新。
+
+升级skill本体时，未本地修改的文件可整体覆盖，已修改的会报冲突而非覆盖；项目模板永不静默覆盖，落后只提示，经用户确认后才合并。
+
+**模板只对「本skill植入的内容」生效。** 早于本skill发布就存在的项目治理文档是模板的**来源**而非实例，它们被判为`legacy`：不写标记、不升级、不纳入模板管理。对它们执行「升级」会以骨架清空实操内容。设计见[VERSIONING.md](VERSIONING.md)，执行规范见[references/upgrade.md](references/upgrade.md)。
+
 ## 安装与兼容
 
 见[各Agent安装说明](INSTALL.md)。通用格式遵循[Agent Skills标准](https://agentskills.io/specification)。宿主路径、刷新与工具权限不属于标准统一保证；没有在所有Agent上进行运行验收。
 
-目录：SKILL.md为执行入口；references/按需读取；templates/为生成用骨架；tests/scenarios.md为手动行为评估场景。没有绑定MCP或自动执行脚本。
+目录：SKILL.md为执行入口；references/按需读取；templates/为生成用骨架（manifest.json记录模板版本与哈希）；tests/scenarios.md为手动行为评估场景。没有绑定MCP或自动执行脚本。
 
 ## 发布与许可
 

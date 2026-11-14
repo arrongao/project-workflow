@@ -1,0 +1,12 @@
+{
+  "template_version": "1.0",
+  "generated": "2026-11-14",
+  "note": "历史模板清单，用于升级时判定项目文件是否被用户改动。每次提升 template_version 时，把上一版的 manifest 复制为本目录下的 <version>.json。哈希为 sha256。",
+  "files": {
+    "AGENTS.md": "sha256:7b8808712cfd9aa4092037cb6efd7a03e2d19d2bbb3f5687a713ebeb7b8aeac9",
+    "BACKLOG.md": "sha256:38695dc4d25b37e3d43bdc31de346664ca14557588e64213d5efd2c85bc36f95",
+    "WORKFLOW.md": "sha256:3a7008dcb6a7ab94e8f09daa38d232e742df9ca927b31f25768663be0214a0c8",
+    "README.md": "sha256:9a87b68558f8c86a6019948e14df2eb62a395ae842efb2aba41d4b92c50cf41a",
+    ".gitattributes": "sha256:6d74ae2d8673dc6538d7257dbb417130f59e31ef7729dfc53e3eeca2e59812b0"
+  }
+}

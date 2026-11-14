@@ -1,0 +1,11 @@
+{
+  "template_version": "1.1",
+  "generated": "2026-11-14",
+  "files": {
+    ".gitattributes": "sha256:6501a388a9d552ec10f51a7109cf933c1785c8cf7e4567ba858c8408d8690e42",
+    "AGENTS.md": "sha256:4a8c3fb77c1419942f1c5c509523c43ffec42f5ac9c06076b901924af26f2924",
+    "BACKLOG.md": "sha256:778401537cc4aa35d6d8d0ac15147fe50d0fe86b68c9ed5dd2f937364091fc20",
+    "README.md": "sha256:7cb750cfe75c120bb82f1f302ff30bbafbea879d3125d59be41a1145b7e8f64b",
+    "WORKFLOW.md": "sha256:a5afc47c16ed2045c7fc17ea141a2f9477cce739ed52764e161906a3292d4a27"
+  }
+}

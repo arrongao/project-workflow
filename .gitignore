@@ -7,3 +7,10 @@ Desktop.ini
 .vscode/
 .idea/
 *.swp
+
+# 本机安装状态（由安装/升级流程生成，不应提交；junction 安装时会出现于仓库内）
+snapshot.json
+registry.jsonl
+
+# 本机会话记忆（含本机绝对路径与会话上下文，不应提交）
+.memsearch/

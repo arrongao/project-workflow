@@ -1,8 +1,14 @@
+# project-workflow: template-version=1.1
 # 新项目可采用；已有仓库须先检查其换行/二进制策略，不直接覆盖或批量规范化。
 * text=auto eol=lf
 *.bat text eol=crlf
 *.cmd text eol=crlf
+*.ps1 text eol=crlf
 *.png binary
 *.jpg binary
 *.ico binary
+*.gif binary
 *.pdf binary
+*.zip binary
+*.exe binary
+*.dll binary

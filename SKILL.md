@@ -1,9 +1,9 @@
 ---
 name: project-workflow
-description: Establish or audit a project's rules, task status, handoff and completion evidence. Use when the user asks to initialize project governance, reconcile documentation with reality, or improve an existing workflow. Preserve existing document locations and authorization; do not invoke just because an ordinary coding task has a repository.
+description: Establish or audit a project's rules, task status, handoff and completion evidence, and install or upgrade the workflow templates it plants into projects. Use when the user asks to initialize project governance, reconcile documentation with reality, improve an existing workflow, or asks which projects have outdated templates. Preserve existing document locations and authorization; do not invoke just because an ordinary coding task has a repository.
 license: MIT
 metadata:
-  version: "0.0.1"
+  version: "0.0.2"
 ---
 
 # Project workflow
@@ -35,10 +35,14 @@ metadata:
 - 已有项目：优先沿用现有规则、需求表、Issue或文档仓库；先说明映射，不建立重复状态源。
 - 新目录中的旧代码、monorepo子应用和双仓库都属于已有上下文；不要仅凭目录新就重建流程。
 - 默认骨架见templates/，文件名可按项目适配。若宿主不自动读取AGENTS.md，复用其规则入口或加入短链接，不复制两份规则正文。
-- 按任务选择参考资料：基本判断见[core-judgments](references/core-judgments.md)；变更边界见[boundaries](references/boundaries.md)；明确需要历史根因分析时读[archaeology](references/archaeology.md)；多人交接或并行工作时读[multi-agent](references/multi-agent.md)。不要默认加载所有参考文件。
+- 按任务选择参考资料：基本判断见[core-judgments](references/core-judgments.md)；变更边界见[boundaries](references/boundaries.md)；明确需要历史根因分析时读[archaeology](references/archaeology.md)；多人交接或并行工作时读[multi-agent](references/multi-agent.md)；安装、升级或用户询问版本与模板落后时读[upgrade](references/upgrade.md)。不要默认加载所有参考文件。
 
 ## 4. 维护规则、状态与证据
 
+- 版本分离：本 skill 有**两套独立版本**——skill 本体版本（`SKILL.md` 的 `metadata.version`）与模板版本（`templates/manifest.json` 的 `template_version`）。植入项目的模板在文件首行带 marker 记录其实际模板版本。
+- 植入模板到项目只在用户授权后执行；目标文件已存在则停止报告，不覆盖。**项目模板永不静默覆盖**：升级时先比对 marker 与用户改动，落后只提示，由用户确认后合并。
+- 需要安装、升级或回答"哪些项目模板落后"时读[upgrade](references/upgrade.md)，按其规范执行；判定以项目内 marker 为准，不以 registry 缓存为准。
+- **不反向升级模板的祖先**：早于本 skill 发布就存在的项目治理文档是模板的**来源**，不是模板的实例。它们哈希不命中任何历史基准、体量远超模板骨架、且提交时间早于 `v0.0.1`；此类项目标记为 `legacy`，不写 marker、不升级、不纳入模板管理，只做存在性提示。对它们执行「升级」会以骨架清空实操内容。判据见[upgrade](references/upgrade.md) §二，实证见[VERSIONING.md](VERSIONING.md) §11。
 - 规则：稳定约束、适用范围及原因。依据可来自明确需求、规范、一次严重事故或重复问题；区分已验证事实与建议，不机械等待第二次事故。
 - 状态：目标、负责人、当前进展、下一步、关联版本与证据。人工验收和开发自检分别记录；Agent可按用户明确结论代记状态，不得自行制造批准。
 - 证据：适用版本、环境、操作或命令、关键结果及未验证边界。不要求每个文档任务都运行代码；不要伪造执行结果。
